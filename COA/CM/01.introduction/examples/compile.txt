@@ -1,0 +1,6 @@
+copy1 : copy1.cpp myclass.cpp
+manyobj : manyobj.cpp manyobj-main.cpp
+destructor : destructor.cpp
+overload : overload.cpp
+pointerarg : pointerarg.cpp
+referencearg : referencearg.cpp

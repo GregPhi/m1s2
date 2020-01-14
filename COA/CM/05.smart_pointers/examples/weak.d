@@ -1,0 +1,1 @@
+weak.o: weak.cpp

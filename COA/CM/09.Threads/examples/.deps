@@ -1,0 +1,13 @@
+barrier.o: barrier.cpp barrier.hpp
+parallel_vector.o: parallel_vector.cpp barrier.hpp
+thread_class.o: thread_class.cpp
+threadex2.o: threadex2.cpp
+thread_exception.o: thread_exception.cpp
+threadex.o: threadex.cpp
+thread_group.o: thread_group.cpp barrier.hpp var_printf.hpp
+thread_local.o: thread_local.cpp
+thread_mailbox.o: thread_mailbox.cpp mailbox.hpp
+thread_object_end.o: thread_object_end.cpp
+thread_ret.o: thread_ret.cpp
+thread_shared_mutex.o: thread_shared_mutex.cpp
+var_printf.o: var_printf.cpp var_printf.hpp

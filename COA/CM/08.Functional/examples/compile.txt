@@ -1,0 +1,6 @@
+global { cxxflags { -Wall --std=c++14 } }
+exec { name {sum} srcs { sum.cpp } }
+exec { name {sum_lambda} srcs { sum_lambda.cpp } }
+exec { name {closure} srcs { closure.cpp } }
+exec { name {closure2} srcs { closure2.cpp } }
+exec { name {sumsquares} srcs { sumsquares.cpp } }

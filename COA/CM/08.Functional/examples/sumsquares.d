@@ -1,0 +1,1 @@
+sumsquares.o: sumsquares.cpp
