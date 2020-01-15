@@ -8,13 +8,14 @@ LD=g++
 
 EXECS = stack_main stack_test
 
-SRCS_stack = Stack.cpp 
+SRCS_stack = Stack.cpp
 OBJS_stack = ${SRCS_stack:.cpp=.o}
 
-SRCS_main = main.cpp 
+SRCS_main = main.cpp
 OBJS_main = ${SRCS_main:.cpp=.o}
 
-SRCS_test = test.cpp test2.cpp
+#SRCS_test = test.cpp test2.cpp testCopy.cpp
+SRCS_test = testtp1.cpp
 OBJS_test = ${SRCS_test:.cpp=.o}
 
 all: $(EXECS)
@@ -22,10 +23,10 @@ all: $(EXECS)
 .cpp.o:
 	$(CPP) $(CXXFLAGS) -c $<
 
-stack_main: $(OBJS_stack) $(OBJS_main) 
+stack_main: $(OBJS_stack) $(OBJS_main)
 	$(LD) $(LDFLAGS) -o $@ $^
 
-stack_test: $(OBJS_stack) $(OBJS_test) 
+stack_test: $(OBJS_stack) $(OBJS_test)
 	$(LD) $(LDFLAGS) -o $@ $^
 
 clean:
@@ -34,4 +35,3 @@ clean:
 
 cleanedit:
 	rm -rf *~
-

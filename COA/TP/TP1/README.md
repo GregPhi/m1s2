@@ -1,10 +1,10 @@
 # Instructions
 
-Remplir le fichier avec les informations demandé. 
+Remplir le fichier avec les informations demandé.
 
 # Noms
 
-	TODO
+	Philippot Grégoire
 
 # Description du travail:
 
