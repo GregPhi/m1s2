@@ -1,6 +1,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <iostream>
+#include <stdio.h>
 #include "Stack.h"
 
 /**
@@ -78,19 +79,17 @@ int Stack::maxsize() const{
 }
 
 void Stack::reduce(){
-  max_size = l_s+1;
+    max_size = l_s+1;
 }
 
-void Stack::half(const Stack &ha){
-    std::ostringstream cout;
-    int t = ha.l_s+1;
-    int h = t/2;
-    for(int i = 0; i < h; i++){
-      cout << "pop half" << ha.pop();
+void half(Stack &ha){
+    int l = ha.size();
+    for (int i = 0; i < l/2; i++) {
+      ha.pop();
     }
 }
 
-Stack Stack::half_copy(const Stack &ha){
+Stack half_copy(const Stack &ha){
     Stack cpy(ha);
     half(cpy);
     return cpy;

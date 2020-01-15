@@ -38,8 +38,9 @@ class Stack {
     int size() const;      // number of elements currently in the stack
     int maxsize() const;   // size of the internal representation
     void reduce();         // set the max size to the real size of table
-    void half(const Stack &ha); //
-    Stack half_copy(const Stack &ha); //
 };
+
+void half(Stack &ha); // keep half the elements of the table
+Stack half_copy(const Stack &ha); // return a copy of a table with half the elements of ha
 
 #endif
