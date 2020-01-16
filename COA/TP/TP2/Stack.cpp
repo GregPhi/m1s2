@@ -82,7 +82,7 @@ void Stack::reduce(){
     max_size = l_s+1;
 }
 
-void half(Stack &ha){
+void half(const Stack &ha){
     int l = ha.size();
     for (int i = 0; i < l/2; i++) {
       ha.pop();
