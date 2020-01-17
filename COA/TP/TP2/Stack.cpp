@@ -82,7 +82,77 @@ void Stack::reduce(){
     max_size = l_s+1;
 }
 
-void half(const Stack &ha){
+Stack Stack::&operator=(const Stack &other){
+  if(this != &other){
+    if(other.size() != l_s+1){
+      delete [] s;
+      l_s=-1;
+      max_size = 0:
+      s = nullptr;
+      s = new int[other.size()];
+      l_s = other.size-1;
+      max_size = other.size();
+    }
+    std::copy(other.s, other.s + other.size(), s);
+  }
+  return *this;
+}
+
+bool Stack::operator==(const Stack &other) const{
+  Stack cpy_other(other);
+  *cpy_s = s;
+  int i = (size() > cpy_other.size()) ? size() : cpy_other.size();
+  for(int j = l-1; j >= 0; j--){
+    if(cpy_s.top() != cpy_s[j]){
+      return false;
+    }
+    cpy_s.pop();
+  }
+  return true;
+}
+
+Stack & Stack::operator+=(const Stack &other){
+  Stack cpy_s(other);
+  Stack res(this);
+  while(!cpy_s.isEmpty()){
+    res.push(cpy_s.top());
+    cpy_s.pop();
+  }
+  return res;
+}
+
+Stack Stack::operator+(const Stack &s1, const Stack &s2){
+  Stack res;
+  res = s1.addition(s2);
+  return res;
+}
+
+Stack addition(const stack &s2){
+
+}
+
+std::ostream& Stack::operator<<(std::ostream &os, const Stack &s){
+  s.display(os);
+  return os;
+}
+
+void display(std::ostream &os) const{
+  os << " stack : ";
+  for(int i = 0; i < size(); i++){
+    oss << s[i];
+  }
+  os << "size of stack : " << size() << "max size of stack : " << maxsize() << "\n";
+}
+
+Stack &operator+=(int elem){
+  if(elem < top()){
+    push(elem);
+  }else{
+    throw IncorectPush(top(),elem);
+  }
+}
+
+void half(Stack &ha){
     int l = ha.size();
     for (int i = 0; i < l/2; i++) {
       ha.pop();

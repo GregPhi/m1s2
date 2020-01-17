@@ -20,6 +20,21 @@ class EmptyExc : public std::exception{
     }
 };
 
+class IncorectPush : public std::exception{
+  private:
+    std::string msg;
+  public:
+    EmptyExc(int top, int elem){
+      std::ostringstream oss;
+      oss << "The element " << elem << " push on the new tower is bigger of the top of this tower " << top;
+      this->msg = oss.str();
+    }
+    virtual ~EmptyExc() throw(){}
+    virtual const char *what() const throw(){
+      return this->msg.c_str();
+    }
+};
+
 class Stack {
     int *s; // table of int
     int l_s; // last infex of tabke
@@ -42,10 +57,11 @@ class Stack {
     bool operator==(const Stack &other) const;
     Stack & operator+=(const Stack &other);
     Stack operator+(const Stack &s1, const Stack &s2);
-    
+    std::ostream& operator<<(std::ostream &os, const Stack &s);
+    Stack &operator+=(int elem);
 };
 
-void half(const Stack &ha); // keep half the elements of the table
+void half(Stack &ha); // keep half the elements of the table
 Stack half_copy(const Stack &ha); // return a copy of a table with half the elements of ha
 
 #endif
