@@ -63,11 +63,20 @@ class EmptyExc : public std::exception{
 ...
 ```
 
+## Fonctions globales :
+```cpp
+'''
+void half(Stack &ha);
+Stack half_copy(const Stack &ha);
+'''
+```
+
 ## Question 1
 
 Les tests s'effectuent parfaitement.
 
 ### Tests de régression :
+#### Test de copie :
 ```cpp
 ...
 Stack s;
@@ -84,12 +93,14 @@ REQUIRE(n.size() == 1);
 ...
 ```
 
+#### Test de destruction :
 ```cpp
 ...
 n.~Stack();
 ...
 ```
 
+#### Test d'augmentation de la taille maximale de Stack :
 ```cpp
 ...
 REQUIRE(s.maxsize() == 2);
