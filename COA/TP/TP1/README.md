@@ -65,10 +65,10 @@ class EmptyExc : public std::exception{
 
 ## Fonctions globales :
 ```cpp
-'''
+...
 void half(Stack &ha);
 Stack half_copy(const Stack &ha);
-'''
+...
 ```
 
 ## Question 1
