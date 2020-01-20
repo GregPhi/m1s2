@@ -8,7 +8,8 @@ Philippot Grégoire
 ### Description des fichiers:
 	* Stack.h :
 	* Stack.cpp :
-	* testtp1.cpp : contient tous les test demandés dans le TP
+	* testtp1.cpp : contient les test des functions 'isEmpty(), top(), pop(), push(), maxsize(), size()'
+	* testquestion.cpp : contient les tests pour les questions 1 à 4
 
 ### Commande à utiliser:
 	* git clone https://gitlab-etu.fil.univ-lille1.fr/philippot/coa-tp1-stack.git
@@ -16,15 +17,16 @@ Philippot Grégoire
 	1. make : afin de compiler tous les fichiers du projet
 	2. ./stack_test : afin d'éxécuter les tests de régression
 	3. ./stack_main : afin d'éxécuter le main
+	4. ./stack_func : afin d'éxécuter les tests des fonctions
 
 
 ## Classe Stack :
 ```cpp
 ...
 class Stack {
-    int \*s;
-    int l_s;
-    int max_size;
+    int \*s; // pile contenant les entiers
+    int l_s; // indice de l'élément en top, iniatilisé à -1
+    int max_size; // taille maximale de la pile, iniatilisé à 1 pour le constructeur par défaut
  public:
     Stack();
     Stack(int size);
@@ -79,16 +81,17 @@ Les tests s'effectuent parfaitement.
 #### Test de copie :
 ```cpp
 ...
-Stack s;
-s.push(1);
-REQUIRE(s.size() == 1);
-REQUIRE(s.maxsize() == 1);
+Stack s1;
+s1.push(1);
+REQUIRE(s1.size() == 1);
+REQUIRE(s1.maxsize() == 1);
 
-Stack n(s);
+Stack n(s1);
 REQUIRE(n.size() == 1);
 
-s.push(2);
-REQUIRE(s.size() == 2);
+s1.push(2);
+REQUIRE(s1.size() == 2);
+REQUIRE(s1.top() == 2);
 REQUIRE(n.size() == 1);
 ...
 ```
@@ -96,6 +99,7 @@ REQUIRE(n.size() == 1);
 #### Test de destruction :
 ```cpp
 ...
+std::cout << "Test destructeur" << '\n';
 n.~Stack();
 ...
 ```
@@ -103,7 +107,8 @@ n.~Stack();
 #### Test d'augmentation de la taille maximale de Stack :
 ```cpp
 ...
-REQUIRE(s.maxsize() == 2);
+std::cout << "Test agrandissement de la taille" << '\n';
+REQUIRE(s1.maxsize() == 2);
 ...
 ```
 
@@ -122,10 +127,11 @@ Les tests s'effectuent parfaitement.
 
 ```cpp
 ...
+std::cout << "Test reduce" << '\n';
 Stack s2(10);
 REQUIRE(s2.maxsize() == 10);
 s2.push(1);
-REQUIRE(n.size() == 1);
+REQUIRE(s2.size() == 1);
 s2.reduce();
 REQUIRE(s2.maxsize() == 1);
 ...
@@ -146,11 +152,15 @@ Les tests s'effectuent parfaitement.
 
 ```cpp
 ...
-s.push(3);
-s.push(4);
-REQUIRE(s.size() == 4);
-half(s);
-REQUIRE(s.size() == 2);
+std::cout << "Test half" << '\n';
+Stack s3(5);
+s3.push(1);
+s3.push(2);
+s3.push(3);
+s3.push(4);
+REQUIRE(s3.size() == 4);
+half(s3);
+REQUIRE(s3.size() == 2);
 ...
 ```
 
@@ -169,12 +179,16 @@ Les tests s'effectuent parfaitement.
 
 ```cpp
 ...
-s.push(3);
-s.push(4);
-REQUIRE(s.size() == 4);
-Stack s4;
-s4 = half_copy(s);
-REQUIRE(s4.size() == 2);
-REQUIRE(s.size() == 4);
+std::cout << "Test half_copy" << '\n';
+Stack s4(5);
+s4.push(1);
+s4.push(2);
+s4.push(3);
+s4.push(4);
+REQUIRE(s4.size() == 4);
+Stack s4cpy;
+s4cpy = half_copy(s4);
+REQUIRE(s4cpy.size() == 2);
+REQUIRE(s4.size() == 4);
 ...
 ```

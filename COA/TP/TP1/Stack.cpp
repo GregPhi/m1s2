@@ -57,6 +57,7 @@ void Stack::push(int elem){
       }
       max_size = m;
       s = temp;
+      delete [] temp;
       push(elem);
     }else{
       l_s++;
