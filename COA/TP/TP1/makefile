@@ -14,7 +14,6 @@ OBJS_stack = ${SRCS_stack:.cpp=.o}
 SRCS_main = main.cpp
 OBJS_main = ${SRCS_main:.cpp=.o}
 
-#SRCS_test = testq1.cpp testq2.cpp testq3.cpp testq4.cpp
 SRCS_test = testquestion.cpp
 OBJS_test = ${SRCS_test:.cpp=.o}
 
