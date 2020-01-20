@@ -1,0 +1,41 @@
+Stack & Stack::operator+=(const Stack &other){
+  Stack cpy_s(other);
+  Stack res;
+  for(int i = 0; i < size(); i++){
+    res.push(s[i]);
+  }
+  while(!cpy_s.isEmpty()){
+    push(cpy_s.top());
+    cpy_s.pop();
+  }
+  return res;
+}
+
+Stack Stack::&operator+=(int elem){
+  Stack res;
+  for(int i = 0; i < size(); i++){
+    res.push(s[i]);
+  }
+  if(elem < top()){
+    push(elem);
+  }else{
+    throw IncorectPush(top(),elem);
+  }
+  return res;
+}
+
+Stack & Stack::operator=(const Stack &other){
+  if(this != &other){
+    if(other.size() != l_s+1){
+      delete [] s;
+      l_s=-1;
+      max_size = 0;
+      s = nullptr;
+      s = new int[other.size()];
+      l_s = other.size()-1;
+      max_size = other.size();
+    }
+    std::copy(other.s, other.s + other.size(), s);
+  }
+  return *this;
+}

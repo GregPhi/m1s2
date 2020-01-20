@@ -24,12 +24,12 @@ class IncorectPush : public std::exception{
   private:
     std::string msg;
   public:
-    EmptyExc(int top, int elem){
+    IncorectPush(int top, int elem){
       std::ostringstream oss;
       oss << "The element " << elem << " push on the new tower is bigger of the top of this tower " << top;
       this->msg = oss.str();
     }
-    virtual ~EmptyExc() throw(){}
+    virtual ~IncorectPush() throw(){}
     virtual const char *what() const throw(){
       return this->msg.c_str();
     }
@@ -53,15 +53,16 @@ class Stack {
     int size() const;      // number of elements currently in the stack
     int maxsize() const;   // size of the internal representation
     void reduce();         // set the max size to the real size of table
-    Stack &operator=(const Stack &other);
+    Stack & operator=(const Stack &other);
     bool operator==(const Stack &other) const;
     Stack & operator+=(const Stack &other);
-    Stack operator+(const Stack &s1, const Stack &s2);
-    std::ostream& operator<<(std::ostream &os, const Stack &s);
     Stack &operator+=(int elem);
+    void display(std::ostream &os);
 };
 
 void half(Stack &ha); // keep half the elements of the table
-Stack half_copy(const Stack &ha); // return a copy of a table with half the elements of ha
+Stack half_copy(const Stack &ha); // return a copy of a table with half elements
+Stack operator+(const Stack &s1, const Stack &s2);
+std::ostream& operator<<(std::ostream &os, const Stack &s);
 
 #endif
