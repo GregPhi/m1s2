@@ -4,6 +4,7 @@
 #include "Stack.h"
 
 TEST_CASE("Test operator", "[stack]"){
+<<<<<<< HEAD
   Stack s1;
   s1.push(1);
   Stack s2 = s1;
@@ -25,4 +26,15 @@ TEST_CASE("Test operator", "[stack]"){
   REQUIRE(empty.str()=="[1 ]");
   TwoElem<<s1;
   REQUIRE(empty.str()=="[1 2 3 ]");
+=======
+  std::cout << "Operator : " << '\n';
+  std::cout << "- &operator= " << '\n';
+  Stack s1;
+  s1.push(1);
+  Stack s2;
+  s2.push(1);
+  std::cout << "- operator== " << '\n';
+  REQUIRE(s1 == s2);
+
+>>>>>>> 5df3a5ea855bfb5836b97da22a880d88737bc88b
 }

@@ -3,49 +3,24 @@
 
 #include "Stack.h"
 
-TEST_CASE("Question 1.1", "[stack]")
+TEST_CASE("Test stack : TP 1", "[stack]")
 {
-  std::cout << "Test cppy" << '\n';
+  std::cout << "Test fonctions Stack" << '\n';
   Stack s;
+  REQUIRE(s.isEmpty() == true);
+  REQUIRE_THROWS(s.top());
+  REQUIRE_NOTHROW(s.pop());
   s.push(1);
-  REQUIRE(s.size() == 1);
+  REQUIRE(s.top() == 1);
   REQUIRE(s.maxsize() == 1);
-
-  Stack n(s);
-  REQUIRE(n.size() == 1);
-
   s.push(2);
   REQUIRE(s.size() == 2);
-  REQUIRE(n.size() == 1);
-
-
-  std::cout << "Test destructeur" << '\n';
-  n.~Stack();
-
-  std::cout << "Test agrandissement de la taille" << '\n';
   REQUIRE(s.maxsize() == 2);
+  s.pop();
+  REQUIRE(s.top() == 1);
+  REQUIRE(s.isEmpty() == false);
+  s.clear();
+  REQUIRE(s.isEmpty() == true);
 
-  std::cout << "Test reduce" << '\n';
-  Stack s2(10);
-  REQUIRE(s2.maxsize() == 10);
-  s2.push(1);
-  REQUIRE(n.size() == 1);
-  s2.reduce();
-  REQUIRE(s2.maxsize() == 1);
-
-  std::cout << "Test half" << '\n';
-  s.push(3);
-  s.push(4);
-  REQUIRE(s.size() == 4);
-  half(s);
-  REQUIRE(s.size() == 2);
-
-  std::cout << "Test half_copy" << '\n';
-  s.push(3);
-  s.push(4);
-  REQUIRE(s.size() == 4);
-  Stack s4;
-  s4 = half_copy(s);
-  REQUIRE(s4.size() == 2);
-  REQUIRE(s.size() == 4);
+  s.~Stack();
 }

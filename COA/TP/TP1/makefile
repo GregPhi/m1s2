@@ -6,7 +6,7 @@ LD=g++
 .SUFFIXES:
 .SUFFIXES: .o .cpp
 
-EXECS = stack_main stack_test
+EXECS = stack_main stack_test stack_func
 
 SRCS_stack = Stack.cpp
 OBJS_stack = ${SRCS_stack:.cpp=.o}
@@ -14,9 +14,11 @@ OBJS_stack = ${SRCS_stack:.cpp=.o}
 SRCS_main = main.cpp
 OBJS_main = ${SRCS_main:.cpp=.o}
 
-#SRCS_test = test.cpp test2.cpp testCopy.cpp
-SRCS_test = testtp1.cpp
+SRCS_test = testquestion.cpp
 OBJS_test = ${SRCS_test:.cpp=.o}
+
+SRCS_func = testtp1.cpp
+OBJS_func = ${SRCS_func:.cpp=.o}
 
 all: $(EXECS)
 
@@ -27,6 +29,9 @@ stack_main: $(OBJS_stack) $(OBJS_main)
 	$(LD) $(LDFLAGS) -o $@ $^
 
 stack_test: $(OBJS_stack) $(OBJS_test)
+	$(LD) $(LDFLAGS) -o $@ $^
+
+stack_func: $(OBJS_stack) $(OBJS_func)
 	$(LD) $(LDFLAGS) -o $@ $^
 
 clean:

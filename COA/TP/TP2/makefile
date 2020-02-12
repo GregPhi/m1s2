@@ -11,7 +11,11 @@ EXECS = stack_main stack_test
 SRCS_stack = Stack.cpp
 OBJS_stack = ${SRCS_stack:.cpp=.o}
 
+<<<<<<< HEAD
 SRCS_hanoi = Hanoi.cpp
+=======
+SRCS_hanoi = Stack.cpp Hanoi.cpp
+>>>>>>> 5df3a5ea855bfb5836b97da22a880d88737bc88b
 OBJS_hanoi = ${SRCS_hanoi:.cpp=.o}
 
 SRCS_main = main.cpp
@@ -25,7 +29,11 @@ all: $(EXECS)
 .cpp.o:
 	$(CPP) $(CXXFLAGS) -c $<
 
+<<<<<<< HEAD
 stack_main: $(OBJS_stack) $(OBJS_hanoi) $(OBJS_main)
+=======
+stack_main: $(OBJS_stack) $(OBJS_main)
+>>>>>>> 5df3a5ea855bfb5836b97da22a880d88737bc88b
 	$(LD) $(LDFLAGS) -o $@ $^
 
 stack_test: $(OBJS_stack) $(OBJS_test)
