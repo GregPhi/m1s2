@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ProjetLivre</string>
+    <string name="infos">Infos</string>
+    <string name="delete">Delete</string>
 </resources>
