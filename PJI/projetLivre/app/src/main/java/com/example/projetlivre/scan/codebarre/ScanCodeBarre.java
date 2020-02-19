@@ -1,0 +1,47 @@
+package com.example.projetlivre.scan.codebarre;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.projetlivre.ChoicesActivity;
+import com.example.projetlivre.R;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+
+public class ScanCodeBarre extends AppCompatActivity implements View.OnClickListener {
+
+    private Button scanButton;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.choices);
+        scanButton = findViewById(R.id.cod_barre);
+    }
+
+    @Override
+    public void onClick(View v){
+        if(v.getId() == R.id.cod_barre){
+            IntentIntegrator scanIntegrator = new IntentIntegrator(this);
+            scanIntegrator.initiateScan();
+        }
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent intent){
+        IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+        String scanContent = "";
+        if (scanningResult != null) {
+            scanContent = scanningResult.getContents();
+        }else {
+            Intent choices = new Intent(this, ChoicesActivity.class);
+            scanContent = "No scan data received!";
+            choices.putExtra("content", scanContent);
+            startActivity(choices);
+        }
+    }
+}
