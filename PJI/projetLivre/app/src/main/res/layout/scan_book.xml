@@ -3,4 +3,22 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <Button
+        android:id="@+id/scan_cd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/scan" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Livres scannées" />
+
+    <include layout="@layout/content_main" />
 </LinearLayout>

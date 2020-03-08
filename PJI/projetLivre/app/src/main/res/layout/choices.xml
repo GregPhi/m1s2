@@ -13,47 +13,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <LinearLayout
+    <Button
+        android:id="@+id/cod_barre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/cod_barre"
-            android:layout_width="198dp"
-            android:layout_height="match_parent"
-            android:text="@string/code_barre" />
-
-        <Button
-            android:id="@+id/cod_barre_multi"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@string/code_barre_multi" />
-    </LinearLayout>
+        android:onClick="scanCodeBarre"
+        android:text="@string/code_barre" />
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <LinearLayout
+    <Button
+        android:id="@+id/rec_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/rec_text"
-            android:layout_width="198dp"
-            android:layout_height="wrap_content"
-            android:text="@string/recognition_text" />
-
-        <Button
-            android:id="@+id/rec_text_multi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/reconnaissance_de_texte_multi" />
-    </LinearLayout>
+        android:onClick="recognizeText"
+        android:text="@string/recognition_text" />
 
     <Space
         android:layout_width="match_parent"
@@ -73,6 +49,7 @@
         android:id="@+id/info_book_in"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="inputInfos"
         android:text="@string/informations_du_livre" />
 
     <Space
@@ -91,5 +68,6 @@
         android:id="@+id/search_codbarre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="inputCodeBarre"
         android:text="@string/rechercher" />
 </LinearLayout>

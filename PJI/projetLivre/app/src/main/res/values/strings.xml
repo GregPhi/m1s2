@@ -4,10 +4,13 @@
     <string name="delete">Delete</string>
     <string name="scan">Scan</string>
     <string name="recognition_text">Reconnaissance de texte</string>
-    <string name="code_barre">Code Barre</string>
+    <string name="code_barre">Code barre</string>
     <string name="manuel">Manuel</string>
     <string name="informations_du_livre">Informations du livre</string>
     <string name="rechercher">Rechercher</string>
     <string name="code_barre_multi">Code barre multi</string>
     <string name="reconnaissance_de_texte_multi">Reconnaissance de texte multi</string>
+    <string name="titre">Titre</string>
+    <string name="matiere">Matiere</string>
+    <string name="cd_in">Merci d\'entrer un code barre</string>
 </resources>

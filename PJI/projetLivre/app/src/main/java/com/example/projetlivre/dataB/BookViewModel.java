@@ -22,14 +22,19 @@ public class BookViewModel extends AndroidViewModel {
 
     public LiveData<List<Book>> getmAllBooks() { return mAllBooks; }
 
+    public LiveData<List<Book>> getAllBookForAMatiere(String m){ return mRepository.getAllBookForAMatiere(m); }
+
+    public LiveData<Book> findBookWithCodeBarre(String i){ return mRepository.findBookWithCodeBarre(i); }
+
     public void insert(Book book) { mRepository.insert(book); }
 
-    public void updateContact(Book... books){
-        mRepository.delete(books[0]);
-        mRepository.insert(books[0]);
+    public void updateBook(Book... books){
+        mRepository.updateBook(books[0]);
     }
 
     public void delete(Book book) { mRepository.delete(book); }
+
+    public void deleteAll(){ mRepository.deleteAll(); }
 
 }
 

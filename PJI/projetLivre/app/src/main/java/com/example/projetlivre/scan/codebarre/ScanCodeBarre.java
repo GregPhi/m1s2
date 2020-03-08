@@ -20,19 +20,21 @@ public class ScanCodeBarre extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.choices);
-        scanButton = findViewById(R.id.cod_barre);
+        setContentView(R.layout.scan_book);
+        scanButton = findViewById(R.id.scan_cd);
     }
 
     @Override
     public void onClick(View v){
-        if(v.getId() == R.id.cod_barre){
+        if(v.getId() == R.id.scan_cd){
             IntentIntegrator scanIntegrator = new IntentIntegrator(this);
             scanIntegrator.initiateScan();
         }
     }
 
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent){
+        //super.onActivityResult(requestCode,resultCode,intent);
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
         String scanContent = "";
         if (scanningResult != null) {
@@ -42,6 +44,19 @@ public class ScanCodeBarre extends AppCompatActivity implements View.OnClickList
             scanContent = "No scan data received!";
             choices.putExtra("content", scanContent);
             startActivity(choices);
+        }
+    }
+
+    public void touse(){
+        Intent intent = getIntent();
+        if(intent != null){
+            String content = "";
+            if(intent.hasExtra("content")){
+                content = intent.getStringExtra("content");
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        content, Toast.LENGTH_SHORT);
+                toast.show();
+            }
         }
     }
 }

@@ -26,6 +26,9 @@ public class BookRepository{
         return mAllBooks;
     }
 
+    LiveData<List<Book>> getAllBookForAMatiere(String m){ return mBookDao.getAllBookForAMatiere(m); }
+
+    LiveData<Book> findBookWithCodeBarre(String i) { return mBookDao.findBookWithCodeBarre(i); }
 
     public void insert (Book book) {
         new insertAsyncTask(mBookDao).execute(book);
@@ -34,6 +37,10 @@ public class BookRepository{
     public void delete (Book book) {
         new deleteAsyncTask(mBookDao).execute(book);
     }
+
+    public void deleteAll(){ mBookDao.deleteAll(); }
+
+    public void updateBook(Book book){ mBookDao.updateBook(book);}
 
     private static class insertAsyncTask extends AsyncTask<Book, Void, Void> {
 
