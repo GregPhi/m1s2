@@ -47,6 +47,13 @@ class MainWindow(QMainWindow):
 		statusBar = QStatusBar(self)
 		self.setStatusBar(statusBar)
 
+	def closeEvent(self, event):
+		choice = QMessageBox.question(self, 'Quit !',"Do you want to quit ?", QMessageBox.Yes | QMessageBox.No)
+		if choice == QMessageBox.Yes:
+			event.accept()
+		else:
+			event.ignore()
+
 	def edit(self):
 		self.textEdit = QTextEdit()
 		self.setCentralWidget(self.textEdit)
