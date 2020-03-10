@@ -76,6 +76,8 @@ Scénario-alternatif :
 
 Scénario-exception :
 
+2. [L'application n'arrive pas à se connecter au serveur afin d'envoyer les identifiants]
+
 8. [Problème lors de l'utilisation de l'appareil photo]
   * 8-1. Fermer l'application
   * 8-2. Se rendre dans les paramètres de son smartphone
