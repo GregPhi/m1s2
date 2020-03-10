@@ -13,4 +13,13 @@
     <string name="titre">Titre</string>
     <string name="matiere">Matiere</string>
     <string name="cd_in">Merci d\'entrer un code barre</string>
+
+    <string name="add_book_ok">Ajout du nouveau livre</string>
+    <string name="add_book_fail">Ajout du nouveau livre impossible</string>
+
+    <string name="info_book_ok"></string>
+    <string name="info_book_fail">Attention : vous avez enlevé le code barre.\n Modification non enregistrée.</string>
+
+    <string name="retour">Retour</string>
+    <string name="save">Enregistrer</string>
 </resources>

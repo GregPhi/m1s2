@@ -1,12 +1,16 @@
 package com.example.projetlivre.object;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "book_table")
-public class Book {
+public class Book implements Parcelable {
     @PrimaryKey
+    @NonNull
     private String id;
     @NonNull
     private String title;
@@ -51,5 +55,35 @@ public class Book {
     }
     public String getDescription(){
         return this.description;
+    }
+
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+        public Book createFromParcel(Parcel in) {
+            return new Book(in);
+        }
+
+        public Book[] newArray(int size) {
+            return new Book[size];
+        }
+    };
+
+    public Book(Parcel in) {
+        this.id = in.readString();
+        this.title = in.readString();
+        this.matiere = in.readString();
+        this.description = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.id);
+        dest.writeString(this.title);
+        dest.writeString(this.matiere);
+        dest.writeString(this.description);
     }
 }

@@ -16,7 +16,7 @@
             android:text="@string/titre" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/edit_titre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -38,7 +38,7 @@
             android:text="@string/code_barre" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/edit_cd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -60,7 +60,7 @@
             android:text="@string/matiere" />
 
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/edit_matiere"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -82,7 +82,7 @@
             android:text="@string/informations_du_livre" />
 
         <EditText
-            android:id="@+id/editText5"
+            android:id="@+id/edit_descrip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -92,7 +92,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_ok"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Valider" />

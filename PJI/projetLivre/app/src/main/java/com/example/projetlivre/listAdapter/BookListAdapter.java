@@ -60,24 +60,24 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.BookVi
             holder.bD.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view){
-                    //mContext.removeContact(current);
+                    mContext.removeBook(current);
                 }
             });
             holder.bI.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view){
-                    //mContext.infosContact(current);
+                    mContext.infosBook(current);
                 }
             });
         } else {
             // Covers the case of data not being ready yet.
-            holder.titleItemView.setText("Nom");
-            holder.descriptionItemView.setText("Prenom");
-            holder.matiereItemView.setText("Age");
+            holder.titleItemView.setText("Titre");
+            holder.descriptionItemView.setText("Description");
+            holder.matiereItemView.setText("Matiere");
         }
     }
 
-    public void setContacts(List<Book> books){
+    public void setBooks(List<Book> books){
         mbooks = books;
         notifyDataSetChanged();
     }
@@ -86,10 +86,7 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.BookVi
     // mWords has not been updated (means initially, it's null, and we can't return null).
     @Override
     public int getItemCount() {
-        if (mbooks != null)
-            return mbooks.size();
-        else return 0;
+        return (mbooks != null) ? mbooks.size(): 0;
     }
-
 }
 
