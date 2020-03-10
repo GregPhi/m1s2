@@ -56,27 +56,34 @@ Scénario-nominal :
 Post-condition : L'application transmet les nouveaux livres au serveur
 
 Scénario-alternatif :
+
 4. [Les identifiants ne sont pas corrects]
-   4-1. Le serveur informe le système de l'application que la connexion n'a pas pu se réaliser
-   4-2. L'application affiche un message (Toast) "L'identifiant entré n'est pas correct"
-   4-3. Retour à l'étape 1
+  * 4-1. Le serveur informe le système de l'application que la connexion n'a pas pu se réaliser
+  * 4-2. L'application affiche un message (Toast) "L'identifiant entré n'est pas correct"
+  * 4-3. Retour à l'étape 1
+
 7. [Ajout en rentrant manuellement le code barre]
-  7-1. Etape 13
+  * 7-1. Etape 13
+
 7. [Ajout en rentrant manuellement les informations du livre]
-  7-1. Etape 15
+  * 7-1. Etape 15
+
 12. [Le code barre est incorrect]
-   12-1. Retour à l'étape 9
+  * 12-1. Retour à l'étape 9
+
 18. [Il manque des informations afin d'ajouter le livre]
-   18-1 Retour à l'étape 16
+  * 18-1 Retour à l'étape 16
 
 Scénario-exception :
+
 8. [Problème lors de l'utilisation de l'appareil photo]
-   8-1. Fermer l'application
-   8-2. Se rendre dans les paramètres de son smartphone
-   8-3. Autoriser l'utilisation de l'appareil photo pour cette application
-   8-4. Retour à l'étape 1
+  * 8-1. Fermer l'application
+  * 8-2. Se rendre dans les paramètres de son smartphone
+  * 8-3. Autoriser l'utilisation de l'appareil photo pour cette application
+  * 8-4. Retour à l'étape 1
+
  9. [Problème lors de l'utilisation de l'appareil photo]
-    9-1. Fermer l'application
-    9-2. Se rendre dans les paramètres de son smartphone
-    9-3. Autoriser l'utilisation de l'appareil photo pour cette application
-    9-4. Retour à l'étape 1
+  *  9-1. Fermer l'application
+  *  9-2. Se rendre dans les paramètres de son smartphone
+  *  9-3. Autoriser l'utilisation de l'appareil photo pour cette application
+  *  9-4. Retour à l'étape 1
