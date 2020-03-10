@@ -1,7 +1,5 @@
 # Description Cas d'Utilisation
 
---- Cas 1 :
-
 ### Identification :
 
 Nom du cas : Utilisation de l'application, afin d'ajouter un / des livre(s) par SCAN
@@ -63,9 +61,9 @@ Scénario-alternatif :
    4-2. L'application affiche un message (Toast) "L'identifiant entré n'est pas correct"
    4-3. Retour à l'étape 1
 7. [Ajout en rentrant manuellement le code barre]
-cf Cas 2
+  7-1. Etape 13
 7. [Ajout en rentrant manuellement les informations du livre]
-cf Cas 3
+  7-1. Etape 15
 12. [Le code barre est incorrect]
    12-1. Retour à l'étape 9
 18. [Il manque des informations afin d'ajouter le livre]
@@ -82,6 +80,3 @@ Scénario-exception :
     9-2. Se rendre dans les paramètres de son smartphone
     9-3. Autoriser l'utilisation de l'appareil photo pour cette application
     9-4. Retour à l'étape 1
-
---- Cas 2 :
---- Cas 3 :
