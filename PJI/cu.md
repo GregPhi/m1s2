@@ -4,7 +4,7 @@
 
 ### Identification :
 
-Nom du cas : Utilisation de l'application, afin d'ajouter un / des livre(s)
+Nom du cas : Utilisation de l'application, afin d'ajouter un / des livre(s) par SCAN
 
 But : détaille les étapes permettant à un utilisateur d'ajouter des livres à la base de donnée
 
@@ -23,29 +23,39 @@ Scénario-nominal :
 4. [Les identifiants sont corrects] Le serveur informe le système de l'application que les identifiants sont corrects
 5. Le système de l'application informe que l'Activity à afficher c'est celle qui permet à l'utilisateur de choisir la méthode afin d'aouter un / des livres
 6. L'application affiche
-   - 4 boutons :
+- 4 boutons :
   * Ajout par scan
   * Ajout en rentrent manuellement le code barre
   * Ajout en rentrant manuellement les informations du livre
   * Envoi des livres à ajouter à la base de donnée
-   - un recyclerview des livres en cours d'ajout
+- un recyclerview des livres en cours d'ajout
 7. Bob choisit d'ajouter un livre [Ajout par scan]
 8. L'application affiche une nouvelle activity comportant
-    - 2 boutons :
+- 2 boutons :
   * Scanner
   * Valider
-    - un textview qui affichera le code barre scanné
+- un textview qui affichera le code barre scanné
 9. Bob clique sur Scanner
 10. Le système de l'application remplace l'activity courante grâce à un IntentIntegrator
 11. Dès que l'application a détecté le code barre, il retourne vers l'activity en y affichant le code barre
 12. [Le code barre est correct] Bob clique sur Valider
 13. Le système de l'application va effectué une requête afin de récupérer les informations du livre (grâce à l'utilisation de l'API Google Book)
-14. Après avoir récupéré un JSON où se trouve les informations du livre scanné, le système va parser les informations afin d'obtenir un nouveau livre
-X. Le système ajoute le nouveau livre dans une liste qui sera envoyé au serveur
-X. Retour à l'étape 6
-X. 
+14. Après avoir récupéré un JSON où se trouve les informations du livre scanné, le système va parser les informations afin d'obtenir un nouveau livre, le JSON est supprimé
+15. L'application affiche une activity comportant
+  * le titre
+  * le code barre
+  * la matière
+  * le niveau
+  * l'état du livre (initialisé <A PRETER>)
+  * l'image de couverture
+  * un bouton -> Ajouter
+16. Bob complète les informations manquantes
+17. Bob clique sur Ajouter
+18. [Toutes les informations importantes sont rentrées] Le système ajoute le nouveau livre dans une liste qui sera envoyé au serveur
+19. Retour à l'étape 6
+20. Bob clique sur Envoi des livres à ajouter à la base de données
 
-Post-condition :
+Post-condition : L'application transmet les nouveaux livres au serveur
 
 Scénario-alternatif :
 4. [Les identifiants ne sont pas corrects]
@@ -58,7 +68,8 @@ cf Cas 2
 cf Cas 3
 12. [Le code barre est incorrect]
    12-1. Retour à l'étape 9
-
+18. [Il manque des informations afin d'ajouter le livre]
+   18-1 Retour à l'étape 16
 
 Scénario-exception :
 8. [Problème lors de l'utilisation de l'appareil photo]
