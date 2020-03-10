@@ -34,7 +34,7 @@ public class ScanCodeBarre extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent){
-        //super.onActivityResult(requestCode,resultCode,intent);
+        super.onActivityResult(requestCode,resultCode,intent);
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
         String scanContent = "";
         if (scanningResult != null) {
