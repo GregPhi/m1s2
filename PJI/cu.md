@@ -2,7 +2,7 @@
 
 ### Identification :
 
-Nom du cas : Utilisation de l'application, afin d'ajouter un / des livre(s) par SCAN
+Nom du cas : Utilisation de l'application, afin d'ajouter un / des livre(s)
 
 But : détaille les étapes permettant à un utilisateur d'ajouter des livres à la base de donnée
 
