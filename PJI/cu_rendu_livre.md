@@ -4,9 +4,9 @@
 
 Nom du cas : Utilisation de l'application lors du rendu des livre
 
-But : étapes permettant à un utilisateur e lister les livre rendu
+But : étapes permettant à un utilisateur de lister les livre rendus
 
-Acteur principal :  élève(Louis) membre de l'association(Emma)
+Acteur principal :  élève (Louis) && utilisateur [membre de l'association des parents d'élèves] (Emma)
 
 ### Fonctionnement :
 
@@ -25,8 +25,8 @@ Scénario-nominal :
 8. Emma valide les livres
 9. Le systeme verifie les livres.
 10. Le système indique les livres manquant
-11. Emma appui sur "send" 
-12. le système renvoie la liste de livre validé au serveur 
+11. Emma appui sur "send"
+12. le système renvoie la liste de livre validé au serveur
 
 Post-condition : L'application transmet la liste des livres rendu au serveur
 

@@ -6,7 +6,7 @@ Nom du cas : Utilisation de l'application, afin d'ajouter un / des livre(s)
 
 But : détaille les étapes permettant à un utilisateur d'ajouter des livres à la base de donnée
 
-Acteur principal : utilisateur (Bob)
+Acteur principal : utilisateur [membre de l'association des parents d'élèves] (Bob)
 
 ### Fonctionnement :
 
@@ -15,7 +15,7 @@ Déclenchement : Le cas commence lorsque l'utilisateur lance l'application
 Pré-condition : L'utilisateur est un parent d'élève appartenant à l'association et l'utilisateur a autorisé l'application à utiliser son appareil photo et réaliser des "connexions internets"
 
 Scénario-nominal :
-1. Bob ouvre l'application et y indique son identifiant, puis valide
+1. Bob ouvre l'application et y indique son identifiant et le fait qu'il souhaite utiliser l'application pour ajouter des livres à la base de donnée, puis valide
 2. Le système de l'application transmet les informations au serveur ("Back-Office")
 3. Le serveur vérifie les informations
 4. [Les identifiants sont corrects] Le serveur informe le système de l'application que les identifiants sont corrects
