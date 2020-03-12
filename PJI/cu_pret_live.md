@@ -21,6 +21,12 @@ Scénario-nominal :
 4. Le système vérifie les informations
 5. [Les identifiants sont corrects] Le serveur informe le système de l'application que les identifiants sont corrects et transmet la liste des livres qui doivent être prêté à Etienne
 6. Le système de l'application affiche la liste des livres grâce à un recyclerview
+7. Emma clique sur le bouton Scan, l'application ouvre une activity affichant différent choix de scan :
+- scan par code barre
+- reconnaissance de texte
+- reconnaissance d'image
+8. [Emma choisit d'utiliser la méthode de scan par code barre]
+9. 
 
 Post-condition : L'application transmet la liste des livres prêtés au serveur
 
@@ -28,6 +34,6 @@ Scénario-alternatif :
 5. [Les identifiants ne sont pas corrects]
   * 5-1. Le serveur informe le système de l'application que la connexion n'a pas pu se réaliser
   * 5-2. L'application affiche un message (Toast) "L'identifiant entré n'est pas correct"
-  * 5-3. Retour à l'étape 1
+  * 5-3. Retour à l'étape 2
 
 Scénario-exception :
