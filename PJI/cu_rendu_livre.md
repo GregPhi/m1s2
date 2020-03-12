@@ -16,10 +16,10 @@ Pré-condition : Emma appartient à l'association et Louis fait parti de la list
 
 Scénario-nominal :
 1. Louis arrive pour rendre ses livres
-2. Emma ouvre l'application et indique l'identifiant associé à Louis
+2. Emma ouvre l'application, y identique ses identifiants et demande la liste des livres associés à Louis
 3. Le système de l'application transmet les informations au serveur ("Back-Office")
 4. Le système vérifie les informations
-5. Le système affiche la liste des livres à rendre et plusieurs choix pour valider les livres (code barre, text, image, entré manuelle ...)
+5. Le système affiche la liste des livres à rendre et plusieurs choix pour valider les livres (code barre, text, image, entrée manuelle ...)
 6. Emma choisit une métohde de validation des livres
 7. Le système affiche la méthode pour rentrer les informations
 8. Emma valide les livres
@@ -41,6 +41,7 @@ Scénario-alternatif :
   * 10.1 Emma appui "commentaire" et écrit les livres qu'il manque
   * 10.2 Emma appui sur "confirmer"
   * 10.3 Etape 11
+  
 9.[Le livre n'est pas reconu]
 
 

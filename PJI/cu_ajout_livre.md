@@ -77,6 +77,8 @@ Scénario-alternatif :
 Scénario-exception :
 
 2. [L'application n'arrive pas à se connecter au serveur afin d'envoyer les identifiants]
+  * 2-1. Bob vérifie la connexion
+  * 2-2. Retour à l'étpae 1
 
 8. [Problème lors de l'utilisation de l'appareil photo]
   * 8-1. Fermer l'application
@@ -84,7 +86,7 @@ Scénario-exception :
   * 8-3. Autoriser l'utilisation de l'appareil photo pour cette application
   * 8-4. Retour à l'étape 1
 
- 9. [Problème lors de l'utilisation de l'appareil photo]
+9. [Problème lors de l'utilisation de l'appareil photo]
   *  9-1. Fermer l'application
   *  9-2. Se rendre dans les paramètres de son smartphone
   *  9-3. Autoriser l'utilisation de l'appareil photo pour cette application
