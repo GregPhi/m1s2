@@ -41,7 +41,7 @@ Scénario-alternatif :
   * 10.1 Emma appui "commentaire" et écrit les livres qu'il manque
   * 10.2 Emma appui sur "confirmer"
   * 10.3 Etape 11
-  
+
 9.[Le livre n'est pas reconu]
 
 
@@ -55,3 +55,38 @@ Scénario-exception :
   * 8-2. Se rendre dans les paramètres de son smartphone
   * 8-3. Autoriser l'utilisation de l'appareil photo pour cette application
   * 8-4. Retour à l'étape 6
+
+
+----
+
+DSS
+title Rendu d'un livre
+
+Eleve->+Utilisateur : Indique les livres qu'il doit rendre
+
+Utilisateur->+Systeme : Ouvre l'application
+
+loop connexion
+    Systeme->+Utilisateur  : Demande les identifiants de l'utilisateur et la liste des livres associés à l'éléève
+    Utilisateur->+Systeme : indique les identifiants et la demande
+    Systeme->+Serveur : Transmet les idendifiants et la demande
+    Serveur-->-Serveur : Vérifie les identifiants
+end
+
+Serveur-->-Systeme : Envoi la liste des livres
+Systeme-->-Systeme : Affiche les livres
+Systeme-->-Utilisateur: Demande l'option que l'utilisateur va utiliser (scan, ...)
+
+loop utilise l'option afin de reconnaitre les livres à rendre
+    Utilisateur->+Systeme : effectue la reconnaissance
+    Systeme->+Systeme : effectue les modifications du statut du livre reconnu
+    Systeme-->-Utilisateur:
+end
+
+Utilisateur->+Systeme : indique au systeme la fin de la reconnaissance
+Systeme->+Serveur : envoi la listes des livres avec modification de leur statut
+Serveur->+Serveur : mets à jour la base de donnée associé à l'élève
+
+Serveur-->-Systeme:
+Systeme-->-Utilisateur:
+Utilisateur-->-Eleve: lui indique si tous ses livres ont bien été rendus
