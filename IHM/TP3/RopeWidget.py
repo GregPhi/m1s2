@@ -1,6 +1,6 @@
 import sys
 from Target import Target
-from BubbleCursor import BubbleCursor
+from RopeCursor import RopeCursor
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
@@ -8,7 +8,7 @@ from csv import *
 from time import *
 from random import *
 
-class BubbleWidget(QWidget):
+class RopeWidget(QWidget):
     def __init__(self):
         super(QWidget,self).__init__()
         self.setMouseTracking(True)
@@ -16,8 +16,9 @@ class BubbleWidget(QWidget):
         file = open("targets.csv",'r')
         line = reader(file)
         for row in line:
-            self.targets.append(Target(int(row[0]),int(row[1]),int(row[2])))
-        self.curosr = BubbleCursor(self.targets)
+            t = Target(int(row[0]),int(row[1]),int(row[2]))
+            self.targets.append(t)
+        self.curosr = RopeCursor(self.targets)
         self.timer = None
         self.random = None
         self.randomTarget()

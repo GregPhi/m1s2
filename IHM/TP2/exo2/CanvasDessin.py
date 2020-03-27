@@ -6,18 +6,27 @@ from PyQt5.QtGui import *
 class CanvasDessin(QWidget):
     def __init__(self):
         super(QWidget, self).__init__()
-        self.setMinimumSize(500,400)
+        self.setMinimumSize(1250,750)
         self.traces = list()
+        self.painter = QPainter()
+        self.pen = QPen(Qt.black)
+        self.painter.setPen(self.pen)
+        self.path = QPainterPath()
 
     def paintEvent(self,event):
-        path = QPainterPath()
-        for i i in range(len(self.traces)):
-            path.addPath(self.tarces[i])
+        for i in range(len(self.traces)):
+            self.path.addPath(self.tarces[i])
+        self.painter.drawPath(self.path)
 
-    def 
+    def modifColor(self,color):
+        self.pen = QPen(color)
+        self.painter.setPen(self.pen)
+        self.update()
 
-    def paintEvent(self,event):
-        pass
+    def modif(self,width):
+        self.pen.setWidth(witdh)
+        self.painter.setPen(self.pen)
+        self.update()
 
     def mouseMoveEvent(self, event):
         pass
