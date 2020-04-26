@@ -5,77 +5,87 @@ from PyQt5.QtGui import *
 from random import *
 from math import *
 
+
 class ExpSetup(QDialog):
+    """
+    Fenêtre de dialogue permettant de sélectionner les paramètres
+    """
     def __init__(self):
         super(QDialog,self).__init__()
+        self.initWidgets()
+        self.initLayout()
+
+    def initWidgets(self):
+        """
+        Crée les widgets de la fenêtre de dialogue
+        """
         self.num_util = QLineEdit(self)
         self.tech = QComboBox(self)
-        self.tech.addItem("Highlight")
         self.tech.addItem("Bubble")
         self.tech.addItem("Rope")
         self.tech.addItem("Normal")
         self.nb_densite = QLineEdit(self)
         self.nb_taille_cible = QLineEdit(self)
         self.nb_repet = QLineEdit(self)
-        self.button_valid = QPushButton("Validattion")
-        self.button_valid.clicked.connect(self.buttonValide)
+        self.button_valid = QPushButton("Validation")
 
-        self.layout = QVBoxLayout()
-        self.layout.addWidget(self.num_util)
-        self.layout.addWidget(self.tech)
-        self.layout.addWidget(self.nb_densite)
-        self.layout.addWidget(self.nb_taille_cible)
-        self.layout.addWidget(self.nb_repet)
-        self.layout.addWidget(self.button_valid)
+    def initLayout(self):
+        """
+        Crée le layout de la fenêtre
+        """
+        self.layout = QFormLayout()
+        self.layout.addRow("Numéro d'utilisateur", self.num_util)
+        self.layout.addRow("Technique", self.tech)
+        self.layout.addRow("Densités", self.nb_densite)
+        self.layout.addRow("Taille maximale des cibles", self.nb_taille_cible)
+        self.layout.addRow("Nombre de répétitions", self.nb_repet)
+        self.layout.addRow(self.button_valid)
         self.setLayout(self.layout)
 
-    def buttonValide(self):
-        num_util = self.num_util.text()
-        if(num_util!=''):
-            num_util = int(num_util)
-        tech = self.tech.currentText()
-        nb_densite = self.nb_densite.text()
-        if(nb_densite!=''):
-            nb_densite = int(nb_densite)
-        nb_taille_cible = self.nb_taille_cible.text()
-        if(nb_taille_cible!=''):
-            nb_taille_cible = int(nb_taille_cible)
-        nb_repet = self.nb_repet.text()
-        if(nb_repet!=''):
-            nb_repet = int(nb_repet)
-        test = (num_util,tech,nb_densite,nb_taille_cible,nb_repet)
-        print(test)
+    def getNumeroUtilisateur(self):
+        """
+        Retourne la QLineEdit concernant le numero de l'utilisateur
+        returns:
+        QLineEdit - le numéro de l'utilisateur
+        """
+        return self.num_util
 
-def generatorCSV(name_file,taille_x,taille_y,nb_cible,taille_cible,espace_e_cible):
-    file = open(name_file,'w')
-    donnee = list()
+    def getTechnique(self):
+        """
+        Retourne la QComboBox concernant la technique que l'utilisateur veut utiliser
+        returns:
+        QComboBox - technique à instancier
+        """
+        return self.tech
 
-    for i in range(nb_cible):
-        test = generatePoint(taille_x,taille_y,taille_cible)
-        if(len(donnee)==0):
-            donnee.append(test)
-        else:
-            while(not(goodAdd(donnee,test,espace_e_cible))):
-                test = generatePoint(taille_x,taille_y,taille_cible)
-            donnee.append(test)
+    def getDensite(self):
+        """
+        Retourne la QLineEdit concernant la densité de points
+        returns:
+        QLineEdit - nombre de points
+        """
+        return self.nb_densite
 
-    for d in donnee:
-        texte = str(d[0])+","+str(d[1])+","+str(d[2])+"\n"
-        file.write(texte)
-    file.flush()
-    file.close()
+    def getTailleCible(self):
+        """
+        Retourne la QLineEdit concernant la taille des cibles
+        returns:
+        QLineEdit - taille des cibles
+        """
+        return self.nb_taille_cible
 
-def generatePoint(taille_x,taille_y,taille_cible):
-    x = randrange(taille_x)
-    y = randrange(taille_y)
-    size = randrange(taille_cible)
-    return (x,y,size)
+    def getNbRepetition(self):
+        """
+        Retourne la QLineEdit concernant le nombre de fois où l'utilisateur va devoir cliquer sur/près une cible
+        returns:
+        QLineEdit - nombre de clique
+        """
+        return self.nb_repet
 
-def goodAdd(donnee,test,espace_e_cible):
-    ok = True
-    for d in donnee:
-        distance = sqrt(abs((d[0] - test[0]))**2+(abs(d[1] - test[1]))**2)
-        if(espace_e_cible > distance-(d[2]+test[2])/2):
-            ok = False
-            break
-    return ok
+    def getValidation(self):
+        """
+        Retourne la QPushButton concernant le numero de l'utilisateur
+        returns:
+        QPushButton - le bouton de validation
+        """
+        return self.button_valid

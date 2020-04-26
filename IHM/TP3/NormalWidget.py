@@ -18,7 +18,7 @@ class NormalWidget(QWidget):
         for row in line:
             t = Target(int(row[0]),int(row[1]),int(row[2]))
             self.targets.append(t)
-        self.curosr = BubbleCursor(self.targets)
+        self.curosr = NormalCursor(self.targets)
         self.timer = None
         self.random = None
         self.randomTarget()
