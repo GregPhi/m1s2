@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="main_choice">
+        <item>Nouveau(x) livre</item>
+        <item>Prêt de livre(s)</item>
+        <item>Rendu de livre(s)</item>
+        <item>MAJ livres</item>
+    </string-array>
+
+    <string-array name="annee">
+        <item>Seconde</item>
+        <item>Premiere</item>
+        <item>Terminale</item>
+    </string-array>
+
+</resources>
