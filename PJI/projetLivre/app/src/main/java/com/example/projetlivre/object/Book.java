@@ -22,175 +22,105 @@ public class Book implements Parcelable {
     private String title;
     /**/
     private String matiere;
+    private String editeur;
     /**/
     private String description;
     /**/
     private String commenataires;
     /**/
-    private Annee annee;
+    private String annee;
     /**/
     private String classe;
     /**/
-    private Etats etats;
+    private String etats;
 
     // CONSTRUCTOR
-
-    /**
-     *
-     */
     public Book(){
         this.id = "";
         this.code_barre = "";
         this.title = "";
         this.matiere = "";
+        this.editeur = "";
         this.commenataires = "";
-    }
-
-    /**
-     *
-     * @param i
-     * @param c
-     * @param t
-     * @param m
-     * @param d
-     */
-    public Book(String i, String c, String t, String m, String d){
-        this.id = i;
-        this.code_barre = c;
-        this.title = t;
-        this.matiere = m;
-        this.commenataires = d;
+        this.description = "";
+        this.annee = "";
+        this.classe = "";
+        this.etats = "";
     }
 
     // GETTER AND SETTER
 
-    /**
-     *
-     * @param i
-     */
     public void setId(String i){
         this.id = i;
     }
 
-    /**
-     *
-     * @param c
-     */
     public void setCode_barre(String c){
         this.code_barre = c;
     }
 
-    /**
-     *
-     * @param t
-     */
     public void setTitle(String t){
         this.title = t;
     }
 
-    /**
-     *
-     * @param m
-     */
     public void setMatiere(String m){
         this.matiere = m;
     }
 
-    /**
-     *
-     * @param d
-     */
     public void setCommenataires(String d){
         this.commenataires = d;
     }
 
-    /**
-     *
-     * @param a
-     */
-    public void setAnnee(Annee a){
+    public void setAnnee(String a){
         this.annee = a;
     }
 
-    /**
-     *
-     * @param c
-     */
     public void setClasse(String c){
         this.classe = c;
     }
 
-    /**
-     *
-     * @param e
-     */
-    public void setEtats(Etats e){
+    public void setEtats(String e){
         this.etats = e;
     }
 
-    /**
-     *
-     * @return
-     */
+    public void setDescription(String d){ this.description = d; }
+
+    public void setEditeur(String e){ this.editeur = e; }
+
     public String getId(){
         return this.id;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCode_barre(){
         return this.code_barre;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getTitle(){
         return this.title;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getMatiere(){
         return this.matiere;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCommenataires(){
         return this.commenataires;
     }
 
-    /**
-     *
-     * @return
-     */
-    public Annee getAnnee(){
+    public String getAnnee(){
         return this.annee;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getClasse(){
         return this.classe;
     }
 
-    /**
-     *
-     * @return
-     */
-    public Etats getEtats(){
+    public String getEtats(){
         return this.etats;
     }
+
+    public String getDescription(){ return this.description; }
+
+    public String getEditeur(){ return this.editeur; }
 
     // PARCELABLE
     public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
@@ -208,10 +138,11 @@ public class Book implements Parcelable {
         this.code_barre = in.readString();
         this.title = in.readString();
         this.matiere = in.readString();
+        this.editeur = in.readString();
         this.commenataires = in.readString();
-        this.annee = Annee.values()[in.readInt()];
+        this.annee = in.readString();
         this.classe = in.readString();
-        this.etats = Etats.values()[in.readInt()];
+        this.etats = in.readString();
     }
 
     @Override
@@ -225,9 +156,10 @@ public class Book implements Parcelable {
         dest.writeString(this.code_barre);
         dest.writeString(this.title);
         dest.writeString(this.matiere);
+        dest.writeString(this.editeur);
         dest.writeString(this.commenataires);
-        dest.writeParcelable(this.annee,0);
+        dest.writeString(this.annee);
         dest.writeString(this.classe);
-        dest.writeParcelable(this.etats,1);
+        dest.writeString(this.etats);
     }
 }

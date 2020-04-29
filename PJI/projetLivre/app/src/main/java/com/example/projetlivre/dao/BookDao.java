@@ -33,5 +33,5 @@ public interface BookDao {
     LiveData<List<Book>> getAllBookForAMatiere(String m);
 
     @Query("SELECT * FROM book_table WHERE id =:i")
-    LiveData<Book> findBookWithCodeBarre(String i);
+    LiveData<List<Book>> findBookWithCodeBarre(String i);
 }

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ProjetLivre</string>
     <string name="infos">Infos</string>
-    <string name="delete">Delete</string>
+    <string name="supprimer">Supprimer</string>
     <string name="scan">Scan</string>
     <string name="recognition_text">Reconnaissance de texte</string>
     <string name="code_barre">Code barre</string>
@@ -12,6 +12,8 @@
     <string name="reconnaissance_de_texte_multi">Reconnaissance de texte multi</string>
     <string name="titre">Titre</string>
     <string name="matiere">Matiere</string>
+    <string name="comm">Commentaires</string>
+    <string name="isbn">ISBN</string>
     <string name="cd_in">Merci d\'entrer un code barre</string>
 
     <string name="add_book_ok">Ajout du nouveau livre</string>

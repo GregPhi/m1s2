@@ -10,7 +10,7 @@ import com.example.projetlivre.R;
 import com.example.projetlivre.dataB.BookViewModel;
 import com.example.projetlivre.object.Book;
 import com.example.projetlivre.object.Constantes;
-import com.example.projetlivre.scan.codebarre.ScanCodeBarre;
+import com.example.projetlivre.unsued.scan.codebarre.ScanCodeBarre;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;

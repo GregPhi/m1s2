@@ -28,7 +28,7 @@ public class BookRepository{
 
     LiveData<List<Book>> getAllBookForAMatiere(String m){ return mBookDao.getAllBookForAMatiere(m); }
 
-    LiveData<Book> findBookWithCodeBarre(String i) { return mBookDao.findBookWithCodeBarre(i); }
+    LiveData<List<Book>> findBookWithCodeBarre(String i) { return mBookDao.findBookWithCodeBarre(i); }
 
     public void insert (Book book) {
         new insertAsyncTask(mBookDao).execute(book);

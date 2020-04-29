@@ -12,7 +12,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.example.projetlivre.dao.BookDao;
 import com.example.projetlivre.object.Book;
 
-@Database(entities = {Book.class},version = 1)
+@Database(entities = {Book.class},version = 2)
 public abstract class ProjectRoomDatabase extends RoomDatabase {
     public abstract BookDao bookDao();
 

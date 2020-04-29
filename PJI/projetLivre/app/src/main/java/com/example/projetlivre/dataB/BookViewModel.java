@@ -24,7 +24,7 @@ public class BookViewModel extends AndroidViewModel {
 
     public LiveData<List<Book>> getAllBookForAMatiere(String m){ return mRepository.getAllBookForAMatiere(m); }
 
-    public LiveData<Book> findBookWithCodeBarre(String i){ return mRepository.findBookWithCodeBarre(i); }
+    public LiveData<List<Book>> findBookWithCodeBarre(String i){ return mRepository.findBookWithCodeBarre(i); }
 
     public void insert(Book book) { mRepository.insert(book); }
 

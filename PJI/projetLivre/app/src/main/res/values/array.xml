@@ -13,4 +13,21 @@
         <item>Terminale</item>
     </string-array>
 
+    <string-array name="etat_livre">
+        <item>Neuf</item>
+        <item>Bon etat</item>
+        <item>Usure faible</item>
+        <item>Usure moyenne</item>
+        <item>Usure forte</item>
+        <item>Autre</item>
+    </string-array>
+
+    <string-array name="statut_livre">
+        <item>A préparer</item>
+        <item>Préparé</item>
+        <item>Emprunté</item>
+        <item>Rendu</item>
+        <item>Autre</item>
+    </string-array>
+
 </resources>

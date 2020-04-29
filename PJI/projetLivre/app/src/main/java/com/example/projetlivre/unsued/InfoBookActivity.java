@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.example.projetlivre.MainActivity;
 import com.example.projetlivre.R;
 import com.example.projetlivre.object.Book;
 import com.example.projetlivre.object.Constantes;
