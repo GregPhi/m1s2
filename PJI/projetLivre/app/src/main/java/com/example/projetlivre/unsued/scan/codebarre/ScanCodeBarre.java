@@ -1,4 +1,4 @@
-package com.example.projetlivre.scan.codebarre;
+package com.example.projetlivre.unsued.scan.codebarre;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.projetlivre.ChoicesActivity;
+import com.example.projetlivre.unsued.ChoicesActivity;
 import com.example.projetlivre.R;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;

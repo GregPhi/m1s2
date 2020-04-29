@@ -1,12 +1,12 @@
-package com.example.projetlivre;
+package com.example.projetlivre.unsued;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.projetlivre.NewBookActivity;
+import com.example.projetlivre.R;
 import com.example.projetlivre.dataB.BookViewModel;
 import com.example.projetlivre.object.Book;
 import com.example.projetlivre.object.Constantes;
@@ -21,7 +21,7 @@ public class ChoicesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.choices);
+        setContentView(R.layout.choices_new_book);
 
         mBookViewModel = ViewModelProviders.of(this).get(BookViewModel.class);
     }
@@ -39,18 +39,6 @@ public class ChoicesActivity extends AppCompatActivity {
     public void inputInfos(View view){
         Intent intent = new Intent(ChoicesActivity.this, NewBookActivity.class);
         startActivityForResult(intent, Constantes.NEW_BOOK_ACTIVITY);
-    }
-
-    public void inputCodeBarre(View view){
-        EditText inpuCD = findViewById(R.id.codbarre_in);
-        if(TextUtils.isEmpty(inpuCD.getText())){
-            Toast.makeText(
-                    getApplicationContext(),
-                    R.string.cd_in,
-                    Toast.LENGTH_LONG).show();
-        }else{
-
-        }
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.example.projetlivre;
+package com.example.projetlivre.unsued;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,14 +9,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
-import com.example.projetlivre.dataB.BookViewModel;
-import com.example.projetlivre.listAdapter.BookListAdapter;
+import com.example.projetlivre.R;
+import com.example.projetlivre.unsued.dataB.BookViewModel;
+import com.example.projetlivre.unsued.listAdapter.BookListAdapter;
 import com.example.projetlivre.object.Book;
 import com.example.projetlivre.object.Constantes;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -26,25 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        FloatingActionButton cd = findViewById(R.id.actionScan);
-        cd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ChoicesActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        FloatingActionButton add = findViewById(R.id.actionAdd);
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, NewBookActivity.class);
-                startActivityForResult(intent,Constantes.NEW_BOOK_ACTIVITY);
-            }
-        });
+        setContentView(R.layout.liste_livres);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         final BookListAdapter adapter = new BookListAdapter(this);
