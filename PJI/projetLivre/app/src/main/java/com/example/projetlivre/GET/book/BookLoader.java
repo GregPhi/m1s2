@@ -1,4 +1,4 @@
-package com.example.projetlivre;
+package com.example.projetlivre.GET.book;
 
 import android.content.Context;
 
@@ -9,7 +9,7 @@ public class BookLoader extends AsyncTaskLoader<String> {
 
     private String mQueryString;
 
-    BookLoader(Context context, String queryString) {
+    public BookLoader(Context context, String queryString) {
         super(context);
         mQueryString = queryString;
     }
@@ -17,7 +17,7 @@ public class BookLoader extends AsyncTaskLoader<String> {
     @Nullable
     @Override
     public String loadInBackground() {
-        return NetworkUtils.getBookInfo(mQueryString);
+        return BookNetworkUtils.getBookInfo(mQueryString);
     }
 
     @Override

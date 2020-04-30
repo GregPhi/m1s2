@@ -13,6 +13,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.projetlivre.GET.book.BookLoader;
+import com.example.projetlivre.GET.book.BookNetworkUtils;
 import com.example.projetlivre.object.Book;
 import com.example.projetlivre.dataB.BookViewModel;
 
@@ -112,7 +114,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         @Override
         protected String doInBackground(String... strings) {
             this.mCDText.get().setText(strings[0]);
-            return NetworkUtils.getBookInfo(strings[0]);
+            return BookNetworkUtils.getBookInfo(strings[0]);
         }
 
         @Override
@@ -227,7 +229,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         startActivity(intent);
     }
 
-    public void addBook(){
+    public void addBook(View view){
         newBook = new Book();
         newBook.setTitle(mEditTitleView.getText().toString());
         newBook.setCode_barre(mEditCodeBarreView.getText().toString());
@@ -238,6 +240,5 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         newBook.setEtats(mSpinnerEtat.getSelectedItem().toString());
         newBook.setCommenataires(mEditCommentaire.getText().toString());
         mBookViewModel.insert(newBook);
-
     }
 }

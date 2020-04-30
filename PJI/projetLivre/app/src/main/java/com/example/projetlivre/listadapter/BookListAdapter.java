@@ -1,4 +1,4 @@
-package com.example.projetlivre.unsued.listAdapter;
+package com.example.projetlivre.listadapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projetlivre.ListeNewBookActivity;
-import com.example.projetlivre.unsued.MainActivity;
 import com.example.projetlivre.R;
 import com.example.projetlivre.object.Book;
 

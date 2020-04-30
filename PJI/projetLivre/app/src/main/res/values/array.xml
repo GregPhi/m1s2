@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="main_choice">
-        <item>Nouveau(x) livre</item>
+        <item>Nouveau(x) livre(s)</item>
         <item>Prêt de livre(s)</item>
         <item>Rendu de livre(s)</item>
         <item>MAJ livres</item>

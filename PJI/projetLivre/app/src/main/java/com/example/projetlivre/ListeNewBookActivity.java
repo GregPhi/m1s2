@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.projetlivre.dataB.BookViewModel;
+import com.example.projetlivre.listadapter.BookListAdapter;
 import com.example.projetlivre.object.Book;
-import com.example.projetlivre.unsued.listAdapter.BookListAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -18,6 +18,12 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.io.IOException;
+import java.util.Properties;
+import javax.servlet.http.*;
+import javax.mail.*;
+import javax.mail.internet.*;
 
 public class ListeNewBookActivity extends AppCompatActivity {
 
@@ -33,8 +39,17 @@ public class ListeNewBookActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton retour = findViewById(R.id.retour);
+        retour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent( ListeNewBookActivity.this, NewBookActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        FloatingActionButton send = findViewById(R.id.send);
+        send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast up = Toast.makeText(getApplicationContext(), "UPLOAD !", Toast.LENGTH_SHORT);
@@ -50,5 +65,28 @@ public class ListeNewBookActivity extends AppCompatActivity {
                 adapter.setBooks(book);
             }
         });
+    }
+
+    @SuppressWarnings("serial")
+    public class TestsServlet extends HttpServlet {
+        public void doGet(HttpServletRequest req, HttpServletResponse resp)
+                throws IOException {
+            try {
+                Properties props = new Properties();
+                Session session = Session.getDefaultInstance(props, null);
+
+                String message = "Corps du message";
+
+                Message msg = new MimeMessage(session);
+                msg.setFrom(new InternetAddress("lordlong59@gmail.com", "L"));
+                msg.addRecipient(Message.RecipientType.TO,
+                        new InternetAddress("phigreg96@gmail.com", "G"));
+                msg.setSubject("Bienvenue sur mon application !");
+                msg.setText(message);
+                Transport.send(msg);
+            } catch (MessagingException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

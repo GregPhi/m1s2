@@ -1,4 +1,4 @@
-package com.example.projetlivre;
+package com.example.projetlivre.GET.qrCodeConnection;
 
 import android.net.Uri;
 import android.util.Log;
@@ -10,25 +10,14 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class NetworkUtils{
-    private static final String LOG_TAG = NetworkUtils.class.getSimpleName();
-    // Base URL for Books API.
-    private static final String BOOK_BASE_URL =  "https://www.googleapis.com/books/v1/volumes?";
-    // Parameter for the search string.
-    private static final String QUERY_PARAM = "q";
-    // Parameter that limits search results.
-    private static final String MAX_RESULTS = "maxResults";
-    // Parameter to filter by print type.
-    private static final String PRINT_TYPE = "printType";
-    static String getBookInfo(String queryString){
+public class QRCodeNetworkUtils {
+    private static final String LOG_TAG = QRCodeNetworkUtils.class.getSimpleName();
+    public static String getCoonectionInfo(String queryString){
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
-        String bookJSONString = null;
+        String connectJSONString = null;
         try {
-            Uri builtURI = Uri.parse(BOOK_BASE_URL).buildUpon()
-                    .appendQueryParameter(QUERY_PARAM, "=isbn:"+queryString)
-                    .appendQueryParameter(MAX_RESULTS, "10")
-                    .appendQueryParameter(PRINT_TYPE, "books")
+            Uri builtURI = Uri.parse(queryString).buildUpon()
                     .build();
             URL requestURL = new URL(builtURI.toString());
             urlConnection = (HttpURLConnection) requestURL.openConnection();
@@ -52,7 +41,7 @@ public class NetworkUtils{
                 // Stream was empty. No point in parsing.
                 return null;
             }
-            bookJSONString = builder.toString();
+            connectJSONString = builder.toString();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -67,7 +56,7 @@ public class NetworkUtils{
                 }
             }
         }
-        Log.d(LOG_TAG, bookJSONString);
-        return bookJSONString;
+        Log.d(LOG_TAG, connectJSONString);
+        return connectJSONString;
     }
 }
